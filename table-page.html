@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Table</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='./res/css/style.css'>
+    <link rel="stylesheet" type='text/css' href="./res/css/bootstrap.min.css">
+    <link rel="stylesheet" type='text/css' href="./res/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function search() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("emp-table");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <!--logo-->
+            <a href="./first-page.html" class="navbar-brand">Logo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="./table-page.html" class="nav-link active">table</a></li>
+                    <li class="nav-item"><a href="./form-page.html" class="nav-link">form</a></li>
+                    <li class="nav-item"><a href="./about-page.html" class="nav-link">about</a></li>
+            </div>
+        </div>
+        </ul>
+    </nav>
+    <div class="main">
+        <div class="container">
+            <h3 class="my-lg-5 my-md-4 my-3">Employees</h3>
+
+            <input class="form-control w-auto col-lg-3 col-6" type="text" placeholder="Search for names.." id="input" onkeyup="search()">
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered shadow" data-filter-control="true" id="emp-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Madeha</td>
+                            <td>madehatahboub@gmail.com</td>
+                            <td>19</td>
+                        </tr>
+                        <tr>
+                            <td>aaaaa</td>
+                            <td>example@gmail.com</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>bbbbb</td>
+                            <td>b@email.com</td>
+                            <td>30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="footer">
+    <div class="row m-0 justify-content-center">
+        <p>Programmed By : Madeha Tahboub</p>
+    </div>
+</footer>
+
+</html>
